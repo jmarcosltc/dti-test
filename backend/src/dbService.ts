@@ -3,6 +3,7 @@ import jsonfile from "jsonfile";
 import path from "path";
 
 const DB_PATH = path.join(__dirname, "../db.json");
+
 const JP_API_URL = process.env.JP_API_URL;
 
 export const readDB = async (): Promise<any> => {

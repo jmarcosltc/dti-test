@@ -48,7 +48,7 @@ function AlbumPhotos() {
       <S.AddPhotoContainer>
         <h1>Album Photos</h1>
         {userId === loggedInUserId && (
-          <S.AddPhotoButton to={`photos/upload/${id}`}>ADD PHOTO</S.AddPhotoButton>
+          <S.AddPhotoButton to={`/photos/upload/${id}`}>ADD PHOTO</S.AddPhotoButton>
         )}
       </S.AddPhotoContainer>
       <S.PhotoList>
@@ -63,7 +63,7 @@ function AlbumPhotos() {
 
             {userId === loggedInUserId && (
               <S.ActionButtons>
-                <S.UpdateButton to={`/photos/${photo.id}/update`}>Update</S.UpdateButton>
+                <S.UpdateButton to={`/albums/${id}/photos/${photo.id}/update`}>Update</S.UpdateButton>
                 <S.DeleteButton onClick={() => photo.id !== undefined && handleDelete(photo.id)}>
                   Delete
                 </S.DeleteButton>

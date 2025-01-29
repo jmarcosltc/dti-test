@@ -21,8 +21,8 @@ function AppLayout() {
         <Route path="/user/:userId/albums/:id/photos" element={<AlbumPhotos />} />
         <Route path="/albums/:id/update" element={<UpdateAlbum />} />
         <Route path="/albums/create" element={<CreateAlbum />} />
+        <Route path="/albums/:albumId/photos/:id/update" element={<UpdatePhoto />} />
         <Route path="/photos/upload/:id" element={<AddPhoto />} />
-        <Route path="/photos/:id/update" element={<UpdatePhoto />} />
       </Routes>
     </S.LayoutContainer>
   );

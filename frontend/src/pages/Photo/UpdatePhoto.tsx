@@ -11,17 +11,18 @@ function UpdatePhoto() {
   const [title, setTitle] = useState("");
 
   const { id } = useParams<{ id: string }>();
+  const { albumId } = useParams<{ albumId: string }>();
 
   const mutation = useMutation({
     mutationFn: () => {
       if (!id) {
         throw new Error("Photo ID is undefined");
       }
-      return updatePhotoService({ photoId: parseInt(id), updatedData: { title } });
+      return updatePhotoService({ photoId: parseInt(id), updatedData: { title, albumId: albumId ? parseInt(albumId) : undefined } });
     },
     onSuccess: () => {
       alert("Photo updated successfully!");
-      navigate(`/user/${mockUserId}/albums/`);
+      navigate(`/users/${mockUserId}/albums`);
     },
   });
 

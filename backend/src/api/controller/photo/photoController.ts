@@ -1,10 +1,7 @@
 import { Request, Response } from "express";
-import multer from "multer";
 import { NOT_FOUND, UNKNOWN_SERVER_ERROR } from "../../../utils/controllerConsts";
 import * as photoService from "../../service/photo/photoService";
 import { createPhoto } from "../../service/photo/photoService";
-
-const upload = multer({ dest: "uploads/" });
 
 export const getPhotosByUserId = async (req: Request, res: Response): Promise<void> => {
   try {
