@@ -7,46 +7,46 @@ import { S } from "./UpdatePhoto.styles";
 const mockUserId = 1;
 
 function UpdatePhoto() {
-    const navigate = useNavigate();
-    const [title, setTitle] = useState("");
+  const navigate = useNavigate();
+  const [title, setTitle] = useState("");
 
-    const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>();
 
-    const mutation = useMutation({
-        mutationFn: () => {
-            if (!id) {
-                throw new Error("Photo ID is undefined");
-            }
-            return updatePhotoService({ photoId: parseInt(id), updatedData: { title } });
-        },
-        onSuccess: () => {
-            alert("Photo updated successfully!");
-            navigate(`/user/${mockUserId}/albums/`);
-        },
-    });
+  const mutation = useMutation({
+    mutationFn: () => {
+      if (!id) {
+        throw new Error("Photo ID is undefined");
+      }
+      return updatePhotoService({ photoId: parseInt(id), updatedData: { title } });
+    },
+    onSuccess: () => {
+      alert("Photo updated successfully!");
+      navigate(`/user/${mockUserId}/albums/`);
+    },
+  });
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        mutation.mutate();
-    };
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    mutation.mutate();
+  };
 
-    return (
-        <S.FormContainer>
-            <h2>Update Photo</h2>
-            <S.StyledForm onSubmit={handleSubmit}>
-                <S.Input
-                    type="text"
-                    placeholder="Photo Title"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                />
+  return (
+    <S.FormContainer>
+      <h2>Update Photo</h2>
+      <S.StyledForm onSubmit={handleSubmit}>
+        <S.Input
+          type="text"
+          placeholder="Photo Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
 
-                <S.SubmitButton type="submit" disabled={mutation.isPending}>
-                    {mutation.isPending ? "Uploading..." : "Upload Photo"}
-                </S.SubmitButton>
-            </S.StyledForm>
-        </S.FormContainer>
-    );
+        <S.SubmitButton type="submit" disabled={mutation.isPending}>
+          {mutation.isPending ? "Uploading..." : "Upload Photo"}
+        </S.SubmitButton>
+      </S.StyledForm>
+    </S.FormContainer>
+  );
 }
 
 export default UpdatePhoto;
