@@ -1,8 +1,20 @@
-import express from 'express';
-import multer from 'multer';
-import { createAlbum, deleteAlbum, getAlbumsById, getAlbumsByUserId, getPhotosByAlbumId, updateAlbum } from './api/controller/album/albumController';
-import { deletePhoto, getPhotosByUserId, updatePhoto, uploadPhoto } from './api/controller/photo/photoController';
-import { getUserById, getUsers } from './api/controller/user/userController';
+import express from "express";
+import multer from "multer";
+import {
+  createAlbum,
+  deleteAlbum,
+  getAlbumsById,
+  getAlbumsByUserId,
+  getPhotosByAlbumId,
+  updateAlbum,
+} from "./api/controller/album/albumController";
+import {
+  deletePhoto,
+  getPhotosByUserId,
+  updatePhoto,
+  uploadPhoto,
+} from "./api/controller/photo/photoController";
+import { getUserById, getUsers } from "./api/controller/user/userController";
 
 const router = express.Router();
 
