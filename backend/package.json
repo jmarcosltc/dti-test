@@ -6,7 +6,6 @@
     "lint": "eslint ",
     "fix": "eslint . --fix"
   },
-  "type": "module",
   "devDependencies": {
     "@eslint/js": "^9.19.0",
     "@types/cors": "^2.8.17",
@@ -34,6 +33,7 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "jsonfile": "^6.1.0",
-    "multer": "^1.4.5-lts.1"
+    "multer": "^1.4.5-lts.1",
+    "uuid": "^11.0.5"
   }
 }

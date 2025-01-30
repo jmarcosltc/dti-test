@@ -1,5 +1,6 @@
 import express from "express";
 import multer from "multer";
+import path from "path";
 import {
   createAlbum,
   deleteAlbum,
@@ -16,6 +17,19 @@ import {
 } from "./api/controller/photo/photoController";
 import { getUserById, getUsers } from "./api/controller/user/userController";
 
+const storage = multer.diskStorage({
+  destination: "uploads/",
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname);
+
+    const formattedFileName = path.basename(file.originalname, ext).replace(/[^a-zA-Z0-9_-]/g, "");
+
+    cb(null, `${Date.now()}-${formattedFileName}${ext}`);
+  },
+});
+
+export const upload = multer({ storage });
+
 const router = express.Router();
 
 router.use(express.json());
@@ -28,8 +42,6 @@ router.delete("/albums/:id", deleteAlbum);
 router.get("/albums/:id/photos", getPhotosByAlbumId);
 
 router.get("/photos/:id", getPhotosByUserId);
-
-const upload = multer({ dest: "uploads/" });
 
 router.post("/photos", upload.single("image"), uploadPhoto);
 router.put("/photos/:id", updatePhoto);

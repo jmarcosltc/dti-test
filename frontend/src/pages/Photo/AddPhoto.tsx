@@ -18,7 +18,7 @@ function AddPhoto() {
     mutationFn: uploadPhotoService,
     onSuccess: () => {
       alert("Photo uploaded successfully!");
-      navigate("/");
+      navigate(`/user/${id}/albums/${albumId}/photos`);
     },
     onError: (error) => {
       console.error(error);

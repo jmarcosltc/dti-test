@@ -18,6 +18,7 @@ export const getPhotosByUserId = async (req: Request, res: Response): Promise<vo
     res.status(500).json({ message: UNKNOWN_SERVER_ERROR });
   }
 };
+
 export const uploadPhoto = async (req: Request, res: Response): Promise<void> => {
   try {
     const { title, albumId } = req.body;

@@ -19,13 +19,13 @@ export default [
       "@typescript-eslint/explicit-function-return-type": "off",
       "@typescript-eslint/no-inferrable-types": "off",
 
-      "semi": ["error", "always"], 
-      "quotes": ["error", "double"], 
-      "indent": ["error", 2],
+      semi: ["error", "always"],
+      quotes: ["error", "double"],
+      indent: ["error", 2],
       "comma-dangle": ["error", "always-multiline"],
 
-      "no-console": "warn", 
-      "no-process-exit": "error", 
+      "no-console": "warn",
+      "no-process-exit": "error",
     },
   },
 ];

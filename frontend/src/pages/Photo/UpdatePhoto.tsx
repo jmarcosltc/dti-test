@@ -18,7 +18,10 @@ function UpdatePhoto() {
       if (!id) {
         throw new Error("Photo ID is undefined");
       }
-      return updatePhotoService({ photoId: parseInt(id), updatedData: { title, albumId: albumId ? parseInt(albumId) : undefined } });
+      return updatePhotoService({
+        photoId: parseInt(id),
+        updatedData: { title, albumId: albumId ? parseInt(albumId) : undefined },
+      });
     },
     onSuccess: () => {
       alert("Photo updated successfully!");

@@ -63,7 +63,9 @@ function AlbumPhotos() {
 
             {userId === loggedInUserId && (
               <S.ActionButtons>
-                <S.UpdateButton to={`/albums/${id}/photos/${photo.id}/update`}>Update</S.UpdateButton>
+                <S.UpdateButton to={`/albums/${id}/photos/${photo.id}/update`}>
+                  Update
+                </S.UpdateButton>
                 <S.DeleteButton onClick={() => photo.id !== undefined && handleDelete(photo.id)}>
                   Delete
                 </S.DeleteButton>
